@@ -102,6 +102,7 @@ add_action( 'widgets_init', 'shanialive_widgets_init' );
 function shanialive_scripts() {
 	
 	wp_enqueue_style( 'shanialive-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'shanialive-lightbox', get_template_directory_uri() . '/css/lightbox.css' );
 	wp_enqueue_style( 'shanialive-style', get_template_directory_uri() . '/style.min.css' );
 	wp_enqueue_script( 'shanialive-vendor', get_template_directory_uri() . '/js/scripts.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'shanialive-custom', get_template_directory_uri() . '/js/main.min.js', array(), '20120206', true );

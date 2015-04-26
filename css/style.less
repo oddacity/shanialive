@@ -116,6 +116,15 @@ h1 {
 	margin: 0.67em 0;
 }
 
+h2 {
+	font-family: @proxima;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 20px;
+	margin: 0 0 40px 0;
+	color: @grey;
+}
+
 mark {
 	background: #ff0;
 	color: #000;
@@ -286,7 +295,12 @@ h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	font-family: @serif;
+	font-size: 16px;
+	line-height: 26px;
+	font-style: italic;
+	letter-spacing: 0.5px;
+	margin: 0;
 }
 
 dfn,
@@ -355,7 +369,7 @@ html {
 }
 
 body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
+	background: @beige; /* Fallback for when there is no custom background color defined. */
 }
 
 blockquote:before,
@@ -417,43 +431,6 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	font-size: 12px;
-	font-size: 0.75rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -495,10 +472,7 @@ textarea {
 --------------------------------------------------------------*/
 a {
 	color: royalblue;
-}
-
-a:visited {
-	color: purple;
+	outline: 0;
 }
 
 a:hover,
@@ -508,7 +482,7 @@ a:active {
 }
 
 a:focus {
-	outline: thin dotted;
+	outline: 0;
 }
 
 a:hover,
@@ -520,14 +494,11 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+	float: right;
+	height: 50px;
 }
-
 .main-navigation ul {
-	display: none;
+	display: block;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -536,11 +507,19 @@ a:active {
 .main-navigation li {
 	float: left;
 	position: relative;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 20px;
 }
 
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: @beige;
+	text-transform: uppercase;
+	font-family: @proxima;
+	font-size: 14px;
+	letter-spacing: 1px;
 }
 
 .main-navigation ul ul {
@@ -598,12 +577,34 @@ a:active {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+.menu-toggle {
+	background: transparent;
+	box-shadow: none;
+	color: @beige;
+	border: none;
+	font-size: 34px;
+	position: fixed;
+	top: 15px;
+	left: 15px;
+	outline: 0;
+}
+@media screen and (min-width: 600px) {
 	.menu-toggle {
 		display: none;
 	}
+}
+@media screen and (max-width: 600px) {
 	.main-navigation ul {
-		display: block;
+		display: none;
+		position: absolute;
+		top: 90px;
+		width: 100%;
+		padding: 15px 0;
+		background: @fadegrey;
+	}
+	.main-navigation ul li {
+		width: 100%;
+		margin: 0;
 	}
 }
 
@@ -628,7 +629,18 @@ a:active {
 	text-align: right;
 	width: 50%;
 }
-
+@media screen and (max-width: 767px) {
+	.main-navigation {
+		float: none;
+	}
+	.main-navigation ul {
+		text-align: center;
+	}
+	.main-navigation li {
+		display: inline-block;
+		float: none;
+	}
+}
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -886,4 +898,205 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "modules/variables";
+@import "modules/btn";
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#masthead {
+	height: 80px;
+	background: @fadegrey;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+#masthead .site-branding h1 {
+	margin: 0;
+}
+#masthead .site-branding h1 a {
+	font-family: @brush;
+	color: @beige;
+	font-size: 50px;
+	line-height: 50px;
+	text-decoration: none;
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+}
+@media screen and (max-width: 767px) {
+	#masthead {
+		height: 130px;
+		padding-top: 20px;
+	}
+	#masthead .site-branding {
+		text-align: center;
+	}
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#colophon {
+	height: 80px;
+	background: @darkgrey;
+	text-align: center;
+	padding: 25px;
+}
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+.center {
+	text-align: center;
+}
+#page {
+	overflow: hidden;
+}
+/*--------------------------------------------------------------
+# Homepage
+--------------------------------------------------------------*/
+.homepage {
+	position: relative;
+	bottom: 0;
+}
+.homepage .banner {
+	min-height: 600px;
+	background-size: cover;
+}
+.homepage .content {
+	display: inline-block;
+	background: @beige;
+	padding: 50px 0;
+	float: left;
+}
+.homepage .shows {
+	display: inline-block;
+	width: 100%;
+	background-size: cover;
+	padding: 75px 0 100px 0;
+	position: relative;
+	float: left;
+}
+.homepage .shows h2,
+.homepage .contact h2 {
+	color: @beige;
+}
+.homepage .shows .overlay,
+.homepage .contact .overlay {
+	height: 100%;
+	float: left;
+	top: 0;
+	display: block;
+	width: 100%;
+	position: absolute;
+	background: @fadegrey;
+}
+.homepage .single-show .wrapper {
+	display: inline-block;
+	width: 100%;
+	border-top: 1px solid rgba(255,255,255,0.25);
+	height: 60px;
+	padding: 15px 0;
+}
+.homepage .single-show .wrapper h3,
+.homepage .contact label,
+.homepage .contact .ninja-forms-required-items {
+	color: @beige;
+	margin: 0;
+	font-family: @proxima;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 30px;
+	height: 30px;
+}
+.homepage .contact .ninja-forms-required-items {
+	height: auto;
+}
+.homepage .single-show .wrapper .btn {
+	float: right;
+}
+.homepage .single-show:last-child .wrapper {
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+.homepage .gallery {
+	background: @beige;
+	display: inline-block;
+	width: 100%;
+	padding: 50px 0 75px 0;
+	float: left;
+}
+.homepage .gallery .image {
+	margin-bottom: 30px;
+}
+.homepage .gallery .image img {
+	width: 100%;
+}
+.homepage .contact {
+	display: inline-block;
+	width: 100%;
+	background-size: cover;
+	padding: 50px 0;
+	position: relative;
+	float: left;
+}
+.homepage .contact input[type=text], 
+.homepage .contact textarea {
+	background: rgba(255,255,255,0.15);
+	padding: 10px 20px;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border: 1px solid rgba(255,255,255,0.25);
+	resize: none;
+	color: white;
+	font-size: 14px;
+	font-family: @proxima;
+	letter-spacing: 1px;
+}
+.homepage .contact .left-side-wrap {
+	width: 48%;
+	float: left;
+}
+.homepage .contact .right-side-wrap {
+	width: 48%;
+	float: right;
+}
+.homepage .contact .textarea-wrap {
+	width: 100%;
+	float: left;
+}
+@media screen and (max-width: 767px) {
+	.homepage h2 {
+		text-align: center;
+	}
+	.homepage .single-show .wrapper {
+		height: 100%;
+	}
+	.homepage .single-show .wrapper h3,
+	.homepage .single-show .wrapper .btn {
+		text-align: center;
+	}
+	.homepage .single-show .wrapper .btn {
+		float: none;
+		margin: 10px auto 5px auto;
+		display: block;
+		width: 130px;
+	}
+	.homepage .contact .left-side-wrap,
+	.homepage .contact .right-side-wrap,
+	.homepage .contact .textarea-wrap {
+		width: 100%;
+		float: left;
+	}
+}
+@media screen and (max-width: 600px) {
+	#masthead {
+		height: 90px;
+	}
 }

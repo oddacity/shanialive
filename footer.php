@@ -8,16 +8,17 @@
  */
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'shanialive' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'shanialive' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'shanialive' ), 'shanialive', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<a class="btn btn-grey" href="#top">Back to Top</a>
+				</div>
+			</div>
+		</div>			
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+
+</div><!-- #page -->	
 
 <script type='text/javascript' src='/wp-content/themes/shanialive/js/vendor/respond.js'></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
