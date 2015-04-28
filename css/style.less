@@ -587,7 +587,7 @@ a:active {
 	left: 15px;
 	outline: 0;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
 	.menu-toggle {
 		display: none;
 	}
@@ -599,6 +599,7 @@ a:active {
 		top: 90px;
 		width: 100%;
 		padding: 15px 0;
+		border-bottom: 1px solid rgba(255,255,255,0.25);
 		background: @fadegrey;
 	}
 	.main-navigation ul li {
@@ -916,6 +917,7 @@ object {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid rgba(255,255,255,0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95333333', endColorstr='#95333333'); /* IE */
 }
 #masthead .site-branding h1 {
 	margin: 0;
@@ -935,6 +937,17 @@ object {
 	}
 	#masthead .site-branding {
 		text-align: center;
+	}
+}
+@media screen and (max-width: 400px) {
+	#masthead .site-branding {
+		text-align: right;
+		padding-right: 30px;
+	}
+}
+@media screen and (max-width: 320px) {
+	#masthead .site-branding h1 a {
+		font-size: 30px;
 	}
 }
 /*--------------------------------------------------------------
@@ -976,6 +989,7 @@ object {
 	display: inline-block;
 	width: 100%;
 	background-size: cover;
+	background-color: @grey;
 	padding: 75px 0 100px 0;
 	position: relative;
 	float: left;
@@ -993,6 +1007,8 @@ object {
 	width: 100%;
 	position: absolute;
 	background: @fadegrey;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95333333', endColorstr='#95333333'); /* IE */
+
 }
 .homepage .single-show .wrapper {
 	display: inline-block;
@@ -1039,6 +1055,7 @@ object {
 	display: inline-block;
 	width: 100%;
 	background-size: cover;
+	background-color: @grey;
 	padding: 50px 0;
 	position: relative;
 	float: left;
@@ -1080,6 +1097,7 @@ object {
 	.homepage .single-show .wrapper h3,
 	.homepage .single-show .wrapper .btn {
 		text-align: center;
+		height: auto;
 	}
 	.homepage .single-show .wrapper .btn {
 		float: none;
